@@ -1,0 +1,31 @@
+{
+  "name": "homebridge-zway-velux",
+  "version": "0.0.1",
+  "description": "Homebridge plugin for controlling Velux blinds by triggering Z-Wave switches via HTTP using a Z-Way Server instance",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge",
+    "zwave",
+    "zway",
+    "velux"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:flxmllr/homebridge-zway-velux.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flxmllr/homebridge-zway-velux/issues"
+  },
+  "engines": {
+    "node": ">4.0.0",
+    "homebridge": ">=0.2.0"
+  },
+  "dependencies": {
+    "request": "^2.74.0"
+    "node-persist" : "0.0.8"
+  },
+  "homepage": "https://github.com/flxmllr/homebridge-zway-velux#readme",
+  "author": "flxmllr"
+}
