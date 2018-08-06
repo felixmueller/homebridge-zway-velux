@@ -1,4 +1,6 @@
 # homebridge-zway-velux
+[![npm version](https://badge.fury.io/js/homebridge-zway-velux.svg)](https://badge.fury.io/js/homebridge-zway-velux)
+
 Homebridge plugin for controlling Velux blinds by triggering Z-Wave switches via HTTP using a Z-Way Server instance
 
 Example config.json:
