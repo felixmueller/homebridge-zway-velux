@@ -1,6 +1,6 @@
 {
   "name": "homebridge-zway-velux",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Homebridge plugin for controlling Velux blinds by triggering Z-Wave switches via HTTP using a Z-Way Server instance",
   "main": "index.js",
   "license": "MIT",
