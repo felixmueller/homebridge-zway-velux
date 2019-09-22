@@ -34,19 +34,21 @@ $ sudo npm install homebridge-zway-velux -g --unsafe-perm
 
 To add this plugin to a Homebridge installation, you have to add a new accessory to the config.json file. The configuration variables are described in the following table:
 
-| Variable | Description | Default |
-| --------- | ------------- | --------- |
-| accessory | System name of the accessory (do not change the default value) | ZWayVelux |
-| name | Name of the shutter blinds to appear in the Home App | Blinds |
-| power_url | Z-Way API URL to switch on the power supply (absolute) | (none) |
-| power_off_url | Z-Way API URL to switch off the power supply (absolute) | (none) |
-| up_url | Z-Way API URL to start opening the blinds (absolute) | (none) |
-| up_off_url | Z-Way API URL to stop opening the blinds (absolute) | (none) |
-| down_url | Z-Way API URL to start closing the blinds (absolute) | (none) |
-| down_off_url | Z-Way API URL to stop closing the blinds (absolute) | (none) |
-| move_percent_duration | Number of milliseconds the blinds need to open or close 1 percent of the moving distance | (none) |
-| start_delay | Number of milliseconds the blinds need to start moving after they are given a command to move up or down | (none) |
-| end_delay | Additional number of milliseconds the blinds need to stop moving after they have opened or closed completely (Velux blinds use to move back a couple of centimeters after they reach an end position to prevent any damage caused by too much stress) | (none) |
+| Variable | Description | Default | Required |
+| --------- | ------------- | --------- | --------- |
+| accessory | System name of the accessory (do not change the default value) | "ZWayVelux" | yes |
+| name | Name of the shutter blinds to appear in the Home App | "Blinds" | yes |
+| powerOnUrl | Z-Way API URL to switch on the power supply (absolute) | (none) | yes |
+| powerOffUrl | Z-Way API URL to switch off the power supply (absolute) | (none) | yes |
+| openStartUrl | Z-Way API URL to start opening the blinds (absolute) | (none) | yes |
+| openStopUrl | Z-Way API URL to stop opening the blinds (absolute) | (none) | yes |
+| closeStartUrl | Z-Way API URL to start closing the blinds (absolute) | (none) | yes |
+| closeStopUrl | Z-Way API URL to stop closing the blinds (absolute) | (none) | yes |
+| durationPerPercent | Number of milliseconds the blinds need to open or close 1 percent of the moving distance | (none) | yes |
+| startDelay | Number of milliseconds the blinds need to start moving after they are given a command to move up or down | (none) | yes |
+| endPositionDelay | Additional number of milliseconds the blinds need to stop moving after they have opened or closed completely (Velux blinds use to move back a couple of centimeters after they reach an end position to prevent any damage caused by too much stress) | (none) | yes |
+| httpMethod | HTTP method used to perform the requests to the Z-Way API | "GET" | no |
+| debugMode | Disables all HTTP requests for debugging purposes | false | no |
 
 Example config.json:
 
@@ -58,16 +60,15 @@ Example config.json:
         {
             "accessory": "ZWayVelux",
             "name": "Blinds",
-            "power_url": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_3-1-37/command/on",
-            "power_off_url": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_3-1-37/command/off",
-            "up_url": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_4-2-37/command/on",
-            "up_off_url": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_4-2-37/command/off",
-            "down_url": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_4-0-37/command/on",
-            "down_off_url": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_4-0-37/command/off",
-            "move_percent_duration": 375,
-            "start_delay": 1750,
-            "end_delay": 6000,
-            "http_method": "GET"
+            "powerOnUrl": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_3-1-37/command/on",
+            "powerOffUrl": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_3-1-37/command/off",
+            "openStartUrl": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_4-2-37/command/on",
+            "openStopUrl": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_4-2-37/command/off",
+            "closeStartUrl": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_4-0-37/command/on",
+            "closeStopUrl": "http://localhost:8083/ZAutomation/api/v1/devices/ZWayVDev_zway_4-0-37/command/off",
+            "durationPerPercent": 375,
+            "startDelay": 1750,
+            "endPositionDelay": 6000
         } 
     ]
 }
@@ -78,8 +79,9 @@ Example config.json:
 * Cancel the current movement and start over when the target position is changed while the blinds are moving
 
 ## Updates
-* 2018-08-06: Published the first working prototype
+* 2018-08-06: Published first working prototype
 * 2019-08-25: Updated documentation
+* 2019-09-22: Refactored and improved logging
 
 ## Useful Links
 * [https://z-wave.me/products/razberry/](https://z-wave.me/products/razberry/)
