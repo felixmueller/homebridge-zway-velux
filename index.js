@@ -48,8 +48,8 @@ function ZWayVeluxAccessory(log, config) {
     this.accessoryInformation = new Service.AccessoryInformation();
     this.accessoryInformation
         .setCharacteristic(Characteristic.Manufacturer, "VELUX INTEGRA")
-        .setCharacteristic(Characteristic.Model, "KLF 050")
-        .setCharacteristic(Characteristic.SerialNumber, package.dist.shasum)
+        .setCharacteristic(Characteristic.Model, "KLF 050 WW")
+        .setCharacteristic(Characteristic.SerialNumber, "29BF07B")
         .setCharacteristic(Characteristic.FirmwareRevision, package.version);
 
     // register the service and provide the functions
