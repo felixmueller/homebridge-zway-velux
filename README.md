@@ -50,13 +50,15 @@ To add this plugin to a Homebridge installation, you have to add a new accessory
 | httpMethod | HTTP method used to perform the requests to the Z-Way API | "GET" | no |
 | debugMode | Disables all HTTP requests for debugging purposes | false | no |
 
-Example config.json:
+Example accessory in config.json:
 
 ```
 {
     ...
     
     "accessories": [
+        ...
+
         {
             "accessory": "ZWayVelux",
             "name": "Blinds",
@@ -79,10 +81,13 @@ Example config.json:
 * Cancel the current movement and start over when the target position is changed while the blinds are moving
 
 ## Updates
+
 * 2018-08-06: Published first working prototype
 * 2019-08-25: Updated documentation
 * 2019-09-22: Refactored and improved logging
+* 2019-10-03: Added accessory information
 
 ## Useful Links
+
 * [https://z-wave.me/products/razberry/](https://z-wave.me/products/razberry/)
 * [RaZberry API Command Examples](https://gist.github.com/integrii/021f272f2cad0540fc3c)

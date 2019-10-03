@@ -1,3 +1,4 @@
+var package = require("./package.json");
 var request = require("request");
 var Service, Characteristic, HomebridgeAPI;
 
@@ -43,6 +44,14 @@ function ZWayVeluxAccessory(log, config) {
     // current target position (last known position by default)
     this.currentTargetPosition = this.lastPosition;
     
+    // create accessory information service and add properties
+    this.accessoryInformation = new Service.AccessoryInformation();
+    this.accessoryInformation
+        .setCharacteristic(Characteristic.Manufacturer, "VELUX INTEGRA")
+        .setCharacteristic(Characteristic.Model, "KLF 050")
+        .setCharacteristic(Characteristic.SerialNumber, package.dist.shasum)
+        .setCharacteristic(Characteristic.FirmwareRevision, package.version);
+
     // register the service and provide the functions
     this.service = new Service.WindowCovering(this.name);
 
@@ -177,5 +186,5 @@ ZWayVeluxAccessory.prototype.httpRequest = function(url, method, callback) {
 }
 
 ZWayVeluxAccessory.prototype.getServices = function() {
-    return [this.service];
+    return [this.accessoryInformation, this.service];
 }
